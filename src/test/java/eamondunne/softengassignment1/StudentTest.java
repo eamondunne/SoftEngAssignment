@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package eamondunne.softengassignment1;
 
 import org.joda.time.DateTime;
@@ -80,8 +75,29 @@ public class StudentTest {
         System.out.println("addModule");
         Module module = module1;
         Student instance = student1;
-        boolean expResult = true;
-        boolean result = instance.addModule(module);
+        instance.addModule(module);
+    }
+
+    /**
+     * Test of addCourse method, of class Student.
+     */
+    @Test
+    public void testAddCourse() {
+        System.out.println("addCourse");
+        Course course = null;
+        Student instance = null;
+        boolean expResult = false;
+        boolean result = instance.addCourse(course);
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of printStudentDetails method, of class Student.
+     */
+    @Test
+    public void testPrintStudentDetails() {
+        System.out.println("printStudentDetails");
+        Student instance = null;
+        instance.printStudentDetails();
     }
 }

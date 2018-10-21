@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package eamondunne.softengassignment1;
 
 import org.joda.time.DateTime;
@@ -27,6 +22,7 @@ public class CourseTest {
     Student student1 = new Student("Philip", 18, sampleDOB);
     Student student2 = new Student("Algernon", 12, sampleDOB);
     Student student3 = new Student("Augusta", 90, sampleDOB);
+    Student student4 = new Student("Hank", 4, sampleDOB);
     
     Module module1 = new Module("Programming 1", "CT101");
     Module module2 = new Module("Computer Systems", "CS102");
@@ -34,6 +30,22 @@ public class CourseTest {
     Course course1 = new Course("CS&IT", startDate, endDate);
     
     public CourseTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
     /**
      * Test of addModule method, of class Course.
@@ -50,32 +62,74 @@ public class CourseTest {
         Course instance = course1;
         instance.addModule(module);
         instance.addModule(module3);
-        course1.printStudentList();
+        course1.printStudentDetails();
+    }
+
+    /**
+     * Test of getCourseName method, of class Course.
+     */
+    @Test
+    public void testGetCourseName() {
+        System.out.println("getCourseName");
+        Course instance = course1;
+        String expResult = "CS&IT";
+        String result = instance.getCourseName();
+        assertEquals(expResult, result);
     }
 
     /**
      * Test of addStudent method, of class Course.
      */
-//    @Test
-//    public void testAddStudent() {
-//        System.out.println("addStudent");
-//        Student student = null;
-//        Course instance = null;
-//        instance.addStudent(student);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testAddStudent() {
+        System.out.println("addStudent");
+        Student student = student4;
+        Course instance = course1;
+        instance.addStudent(student);
+    }
 
     /**
-     * Test of printStudentList method, of class Course.
+     * Test of printStudentUsernames method, of class Course.
      */
     @Test
-    public void testPrintStudentList() {
-        System.out.println("printStudentList");
+    public void testPrintStudentUsernames() {
+        System.out.println("printStudentUsernames");
         Course instance = course1;
-        instance.printStudentList();
-        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        instance.printStudentUsernames();
+    }
+
+    /**
+     * Test of printModuleList method, of class Course.
+     */
+    @Test
+    public void testPrintModuleList() {
+        System.out.println("printModuleList");
+        Course instance = course1;
+        instance.printModuleList();
+    }
+
+    /**
+     * Test of getStartDate method, of class Course.
+     */
+    @Test
+    public void testGetStartDate() {
+        System.out.println("getStartDate");
+        Course instance = course1;
+        DateTime expResult = startDate;
+        DateTime result = instance.getStartDate();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getEndDate method, of class Course.
+     */
+    @Test
+    public void testGetEndDate() {
+        System.out.println("getEndDate");
+        Course instance = course1;
+        DateTime expResult = endDate;
+        DateTime result = instance.getEndDate();
+        assertEquals(expResult, result);
     }
     
 }
