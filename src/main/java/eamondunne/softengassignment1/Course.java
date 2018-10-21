@@ -43,7 +43,6 @@ public class Course {
             for (Student student : ModuleStudents) {
                 if (!Students.contains(student)) {
                     Students.add(student);
-                    student.addCourse(this);
                 }
             }
         }
