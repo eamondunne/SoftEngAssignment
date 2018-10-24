@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author eamondunne1
+ * @author eamondunne
  */
 public class Module {
 
@@ -12,11 +12,6 @@ public class Module {
     private String moduleID;
     private ArrayList<Student> studentList = new ArrayList();
 
-    /**
-     *
-     * @param moduleName
-     * @param moduleID
-     */
     public Module(String moduleName, String moduleID) {
         this.moduleName = moduleName;
         this.moduleID = moduleID;
@@ -26,11 +21,6 @@ public class Module {
         return moduleID + " - " + moduleName;
     }
 
-    /**
-     *
-     * @param student
-     * @return
-     */
     public boolean addStudent(Student student) {
         if (!studentList.contains(student)) {
             studentList.add(student);
@@ -39,20 +29,29 @@ public class Module {
         return true;
     }
 
-    /**
-     * Print list of students in module
-     */
     public void printStudentList() {
         for (Student student : studentList) {
             System.out.println(student.getUserName());
         }
     }
+    
+    public void printStudentDetails() {
+        for (Student student : studentList) {
+            student.printStudentDetails();
+        }
+    }
+    
 
-    /**
-     *
-     * @return ArrayList of students in module
-     */
     public ArrayList<Student> getStudents() {
         return this.studentList;
+    }
+
+
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public String getModuleID() {
+        return moduleID;
     }
 }

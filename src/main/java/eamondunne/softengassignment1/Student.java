@@ -10,13 +10,13 @@ import org.joda.time.Years;
  */
 public class Student {
 
-    String name;
-    int age;
-    DateTime DOB;
-    int ID;
-    String userName;
-    ArrayList<Module> Modules = new ArrayList();
-    Course course;
+    private String name;
+    private int age;
+    private DateTime DOB;
+    private int ID;
+    private String userName;
+    private ArrayList<Module> Modules = new ArrayList();
+    private Course course;
 
     /**
      * @param name

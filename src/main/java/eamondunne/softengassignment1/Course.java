@@ -15,7 +15,7 @@ public class Course {
     private DateTime endDate;
 
     /**
-     *
+     * Constructor for Course
      * @param courseName
      * @param startDate
      * @param endDate
@@ -24,10 +24,6 @@ public class Course {
         this.courseName = courseName;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-
-    public String getCourseName() {
-        return courseName;
     }
 
     /**
@@ -51,7 +47,6 @@ public class Course {
 
     /**
      * Adds Student to Course if not already added.
-     *
      * @param student
      */
     public void addStudent(Student student) {
@@ -61,7 +56,7 @@ public class Course {
     }
 
     /**
-     * Prints list of currently subscribed students
+     * Prints list of all currently subscribed students
      */
     public void printStudentUsernames() {
         for (Student student : Students) {
@@ -69,6 +64,9 @@ public class Course {
         }
     }
     
+    /**
+     * Prints details of all currently subscribed students
+     */
     public void printStudentDetails() {
         for (Student student : Students) {
             student.printStudentDetails();
@@ -83,18 +81,25 @@ public class Course {
             System.out.println(module.getModuleDetails());
         }
     }
+    
+    /**
+     * @return Name of Course
+     */
+    public String getCourseName() {
+        return courseName;
+    }
 
     /**
-     *
-     * @return
+     * Getter Method of Course Start Date.
+     * @return start date of course
      */
     public DateTime getStartDate() {
         return this.startDate;
     }
 
     /**
-     *
-     * @return
+     * Getter Method of Course End Date.
+     * @return end date of course
      */
     public DateTime getEndDate() {
         return this.endDate;

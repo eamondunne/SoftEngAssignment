@@ -16,6 +16,9 @@ public class StudentTest {
     
     DateTime sampleDOB = new DateTime(1996, 07, 22, 4, 20);
     
+    DateTime startDate = new DateTime(2017, 9, 1, 0, 0);
+    DateTime endDate = new DateTime(2018, 4, 30, 0, 0);
+    
     Student student1 = new Student("Philip", 18, sampleDOB);
     Student student2 = new Student("Algernon", 12, sampleDOB);
     Student student3 = new Student("Augusta", 90, sampleDOB);
@@ -23,26 +26,10 @@ public class StudentTest {
     Module module1 = new Module("Programming 1", "CT101");
     Module module2 = new Module("Computer Systems", "CS102");
     
+    Course course1 = new Course("CS&IT", startDate, endDate);
     public StudentTest() {
     }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
-
+    
     /**
      * Test of getUserName method, of class Student.
      */
@@ -84,9 +71,9 @@ public class StudentTest {
     @Test
     public void testAddCourse() {
         System.out.println("addCourse");
-        Course course = null;
-        Student instance = null;
-        boolean expResult = false;
+        Course course = course1;
+        Student instance = student1;
+        boolean expResult = true;
         boolean result = instance.addCourse(course);
         assertEquals(expResult, result);
     }
@@ -97,7 +84,9 @@ public class StudentTest {
     @Test
     public void testPrintStudentDetails() {
         System.out.println("printStudentDetails");
-        Student instance = null;
+        Student instance = student1;
+        student1.addCourse(course1);
+        student1.addModule(module1);
         instance.printStudentDetails();
     }
 }

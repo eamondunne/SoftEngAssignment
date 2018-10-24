@@ -1,5 +1,6 @@
 package eamondunne.softengassignment1;
 
+import java.util.ArrayList;
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -30,6 +31,7 @@ public class CourseTest {
     Course course1 = new Course("CS&IT", startDate, endDate);
     
     public CourseTest() {
+        
     }
 
     @BeforeClass
@@ -94,7 +96,10 @@ public class CourseTest {
     @Test
     public void testPrintStudentUsernames() {
         System.out.println("printStudentUsernames");
+        
         Course instance = course1;
+        /* Add Student if not already been added */
+        instance.addStudent(student1);
         instance.printStudentUsernames();
     }
 
@@ -105,6 +110,7 @@ public class CourseTest {
     public void testPrintModuleList() {
         System.out.println("printModuleList");
         Course instance = course1;
+        instance.addModule(module1);
         instance.printModuleList();
     }
 
@@ -131,5 +137,16 @@ public class CourseTest {
         DateTime result = instance.getEndDate();
         assertEquals(expResult, result);
     }
-    
+
+    /**
+     * Test of printStudentDetails method, of class Course.
+     */
+    @Test
+    public void testPrintStudentDetails() {
+        System.out.println("printStudentDetails");
+        Course instance = course1;
+        instance.printStudentDetails();
+    }
+
+       
 }

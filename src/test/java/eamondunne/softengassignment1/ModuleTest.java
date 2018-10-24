@@ -1,5 +1,6 @@
 package eamondunne.softengassignment1;
 
+import java.util.ArrayList;
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -26,22 +27,6 @@ public class ModuleTest {
     public ModuleTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of addStudent method, of class Module.
      */
@@ -66,6 +51,66 @@ public class ModuleTest {
         instance1.addStudent(student1);
         instance1.addStudent(student2);
         instance1.printStudentList();
+    }
+
+    /**
+     * Test of getModuleDetails method, of class Module.
+     */
+    @Test
+    public void testGetModuleDetails() {
+        System.out.println("getModuleDetails");
+        Module instance = module1;
+        String expResult = "CT101 - Programming 1";
+        String result = instance.getModuleDetails();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of printStudentDetails method, of class Module.
+     */
+    @Test
+    public void testPrintStudentDetails() {
+        System.out.println("printStudentDetails");
+        Module instance = module2;
+        instance.printStudentDetails();
+    }
+
+    /**
+     * Test of getStudents method, of class Module.
+     */
+    @Test
+    public void testGetStudents() {
+        System.out.println("getStudents");
+        Module instance = module1;
+        module1.addStudent(student1);
+        ArrayList<Student> expResult = new ArrayList();
+        expResult.add(student1);
+        ArrayList<Student> result = instance.getStudents();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getModuleName method, of class Module.
+     */
+    @Test
+    public void testGetModuleName() {
+        System.out.println("getModuleName");
+        Module instance = module1;
+        String expResult = "Programming 1";
+        String result = instance.getModuleName();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getModuleID method, of class Module.
+     */
+    @Test
+    public void testGetModuleID() {
+        System.out.println("getModuleID");
+        Module instance = module2;
+        String expResult = "CS102";
+        String result = instance.getModuleID();
+        assertEquals(expResult, result);
     }
     
 }
